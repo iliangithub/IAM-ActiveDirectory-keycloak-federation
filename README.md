@@ -232,7 +232,9 @@ Y la granularidad es muy fina: si a un usuario le cambio el departamento, no via
 Por lo tanto, lo que viaja en cada replicación no es el usuario entero, sino solo el atributo que ha cambiado. Y ese atributo no se identifica solo, sino por la combinación de tres cosas: el objeto al que pertenece (su `objectGUID`), qué atributo es (su identificador en el esquema) y en qué versión está, con qué controlador lo cambió y cuándo.
 
 La única copia completa ocurre una vez: cuando se promueve un controlador nuevo, que tiene que recibir el directorio entero para arrancar.
-<br><br><br><br><br><br><br><br>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 Active Directory no trabaja solo, se apoya en tres protocolos:
 - LDAP, para consultar y modificar el directorio. Es el que va a usar Keycloak.
 - Kerberos, para autenticar dentro del dominio. Es lo que pasa cuando un empleado inicia sesión en su equipo.
@@ -451,7 +453,8 @@ Por lo tanto, las 3 piezas son:
 - El conmutador virtual "Switch virtual" que repito, lo acabamos de crear (`LabExterno`) y es donde se "_enchufan_" las tarjetas de las máquinas virtuales.
 - Finalmente, la tarjeta de red física de mi portátil, que conecta el switch virtual, con la red de mi casa.
 
-<br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 Entonces. Antes de que creemos el conmutador "_switch_". El Windows usaba la tarjeta física directamente, no había ningún switch de por medio.
 
 <pre>
@@ -510,7 +513,7 @@ La creación de tarjetas de red es también obligatorio y un requisito para cone
 - Y la de la máquina virtual, pues cuando toque crear la máquina virtual.
 
 
-<br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 Hyper-V tiene tres tipos de switches, y la elección determina quién puede hablar con quién:
@@ -519,7 +522,7 @@ Hyper-V tiene tres tipos de switches, y la elección determina quién puede habl
 - **Interno:** las máquinas virtuales y el anfitrión. Sin salida a la red física.
 - **Externo:** se asocia a una tarjeta de red física y las máquinas quedan en tu red local como un equipo más.
 
-<br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 Elegimos externo por una razón concreta de tu topología. Keycloak va a correr en Docker dentro de WSL2, y WSL2 vive detrás de su propio NAT, no es un proceso más del anfitrión a efectos de red. Desde ahí sale hacia tu red local a través del anfitrión, así que alcanza cualquier IP de tu LAN. Si el controlador está en un conmutador interno o en el conmutador predeterminado (que hace NAT), queda en una red que WSL2 no enruta, y tendrías que montar reenvío de puertos para que Keycloak llegue al 636. Con externo, el controlador tiene una IP de tu LAN y se acabó el problema.
 
