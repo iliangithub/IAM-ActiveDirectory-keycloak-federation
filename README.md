@@ -483,7 +483,7 @@ Por lo tanto, se crea a Windows una tarjeta de red virtual para poder conectarse
 Windows ------> Tarjeta de red virtual ---|
 								 |
 								 |
-								V
+								 V
 							switch virtual <----> tarjeta física de red<----> router de casa
 
 </pre>
@@ -496,10 +496,10 @@ Finalmente, como vamos a crear una máquina virtual en Hyper-V, también requier
 Windows ------> Tarjeta de red virtual ---|
 								 |
 								 |
-								V
+								 V
 							switch virtual <----> tarjeta física de red<----> router de casa
 
-								  Ʌ
+								   Ʌ
 								   |
 								   |
 Máquina Virtual -> Tarjeta de red virtual --|
