@@ -2514,3 +2514,4 @@ https://www.keycloak.org/docs/latest/server_admin/index.html
 
 El escenario híbrido completo. Un inquilino de Entra ID, la sincronización desde este mismo Active Directory con Entra Cloud Sync y el aprovisionamiento por SCIM hacia una aplicación. Está desarrollado en su propio enunciado, y arranca justo donde termina este.
 
+ión \(f(x)\)
